@@ -1,0 +1,476 @@
+ <nav id="navbar">
+    
+    <h2>Structured Query Language Webpage</h2>
+    <header>Structured Query Language-Basic Concepts </header>
+    <ul>
+        <li><a class="nav-link" href="#Intro_to_databases">Introduction to Databases</a></li>
+        <li><a class="nav-link" href="#Database_Tables">Database Tables</a></li>
+        <li><a class="nav-link" href="#Primary_Keys">Primary Keys</a></li>
+        <li><a class="nav-link" href="#What_is_SQL">What is SQL?</a> </li>
+        <li><a class="nav-link" href="#SQL_Statements:SELECT">SQL Statement:SELECT</a></li>
+        <li><a class="nav-link" href="#Show_Databases">SHOW DATABASES</a></li> 
+        <li><a class="nav-link" href="#BasicSQLCommands">Basic SQL Command</a></li>
+        <li><a class="nav-link" href="#SELECT_Statement">SELECT Statement</a></li>
+        <li><a class="nav-link" href="#SQL_Syntax_Rules">SQL Syntax Rules</a></li>
+        <li><a class="nav-link" href="#Case_Sensibility">Case Sensibility</a></li>
+        <li><a class="nav-link" href="#Syntax_Rules">Syntax Rules</a></li>
+        <li><a class="nav-link" href="#Selecting_All_Columns">Selecting All Columns</a></li>
+        <li><a class="nav-link" href="#The_DISTINCT_Keyword">The DISTINCT Keyword</a></li>
+        <li><a class="nav-link" href="#The_LIMIT_Keyword">The LIMIT Keyword</a></li>
+        <li><a class="nav-link" href="#Sorting_Results">Sorting Results</a></li>
+        <li><a class="nav-link" href="#Order_By">Order By</a></li>
+        <li><a class="nav-link" href="#Sorting_Multiple_Columns">Sorting Multiple Columns</a> </li>
+        <li><a class="nav-link" href="#Reference">Reference</a></li>
+    </ul>
+</nav>
+
+<main id="main doc">
+    <section class="main section" id="Intro_to_databases">
+        <header>Introduction to Databases</header>
+        <article>
+            <p>
+                A database is a collection of data that is organized in a manner that facilitates ease of access, as well as efficient management and updating.
+
+                A database is made up of tables that store relevant information.
+
+                For example, you would use a database, if you were to create a website like YouTube, which contains a lot of information like videos, usernames, passwords, comments.
+
+                In this course we will learn how to create and query databases using SQL.
+            </p>
+        </article>
+    </section>
+    <section class="main section" id= "Database_Tables">
+        <header>Database Tables</header>
+        <article>
+            <p>
+                A table stores and displays data in a structured format consisting of columns and rows that are similar to those seen in Excel Spreadsheets. 
+
+                Databases often contain multiple tables, each designed for a specific purpose. For example, imagine creating a database table of names and telephone numbers. 
+
+                First, we would set up columns with the titles: FirstName, LastName, and TelephoneNumber. 
+
+                Each table includes its own set of fields, based on the data it will store. 
+
+                A table has a  specified number of columns but can have any number of rows.
+            </p>
+        </article>
+    </section>
+    <section class="main section" id= "Primary_Keys">
+        <header>Primary Keys</header>
+        <article>
+            <p>
+                A primary Key is a field in the table that uniquely identifies the table records.
+
+            The primary key’s main features:
+                -It must contain a unique value for each value for each row.
+                -It cannot contain NULL values 
+
+            *NULL- An absence of values*
+
+        For example, our table contains a record for each name in a phone book. The unique ID number would be a good choice for a primary in the table, as there is always the chance for more than one person to have the same name. 
+
+        Tables are limited to ONE primary key each.
+
+        The primary keys value must be different for each row.
+            </p>
+        </article>
+    </section>
+    <section class="main section" id="What_is_SQL">
+        <header>What is SQL?</header>
+        <article>
+            <p>
+                Once you understand what a database is, understanding SQL is easy. SQL stands for Structured QUery Language.
+
+SQL is used to access and manipulate a database.
+MySQL is a program that understands SQL.
+
+SQL can:
+-insert, updata, or delete records in a database.
+-create new databases, table stores procedures, views.
+-retrieve data from a database, etc.
+
+SQL is an ANSI (American National Standards Institute) standard, but there are different versions of the SQL language.
+Most SQL database programs have their own proprietary extensions in addition to the SQL standard, but all of them support the major commands. 
+            </p>
+        </article>
+    </section>
+    <section class="main section" id="SQL_Statement:_SELECT">
+        <header>SQL Statement:SELECT</header>
+        <article>
+            <p> 
+                The SQL SHOW statements display information contained in the database and its tables. This helpful tool lets you keep track of your database contents and remind yourself about the structure of your tables. 
+
+For example, the SHOW DATABASES command lists the databases managed by the server.
+
+            </p>
+        </article>
+    </section>
+    <section class="main section" id="Show_Databases">
+        <header>Show Databases</header>
+        <article>
+            <p> 
+                Throughout the tutorial we will be using the MYSQL engine and the PHPMyAdmin tool to run SQL queries.
+
+The easiest way to get MySQL and PHPMyAdmin is to install free tools like XAMPP or WAMP, which include all necessary installers. 
+            </p>
+        </article>
+    </section>
+    <section class="main section" id="Basic_SQL_Commands">
+        <header>Basic SQL Commands</header>
+        <article>
+            <p> 
+                The SHOW TABLES command is used to display all of the tables inn the currently selected MySQL database. 
+
+                For our example, we have created a database, my_database, with a table called customers.
+                
+                The SHOW COLUMNS displays information about the columns in a given table.
+                
+                The following example displays the columns in our customers table:
+                
+                SHOW COLUMNS FROM customers
+                
+                SHOW COLUMNS displays the following values for each table column:
+                
+                <strong>Field:</strong> column name
+               <strong>Type:</strong> column data type
+                <strong>Key:</strong> indicates whether the column is indexed
+                <strong> Default:</strong> default value assigned to the column
+                <strong> Extra:</strong> may contain any additional information that is available about a given column
+                 The columns for the customers table have also been created using the PHPMyAdmin tool.  
+            </p>
+        </article>
+    </section>
+    <section class="main section" id="SELECT_Statement">
+        <header>SELECT Statement</header>
+        <article>
+            <p> 
+                The SELECT statement is used to select data from a database. 
+The result is stored in a result table, which is called the result- set.
+
+A query may retrieve information from selected columns or from all columns in the table. To create a simple SELECT statement, specify the name(s)of the column(s) you need from the table. 
+
+Syntax of the SQL SELECT Statement:
+
+SELECT column_list
+FROM table_name
+
+-column_list includes one or more columns from which data is retrieved 
+-table-name is the name of the table from which the information is retrieved
+
+The following SQL statement selects the FIrstName from the customers table:
+
+SELECT FirstName FROM customers
+
+A SELECT statement retrieves zero or more rows from one more database table.
+            </p>
+        </article>
+    </section>
+    <section class="main section" id="SQL_Syntax_Rules">
+        <header>SQL Syntax Rules</header>
+        <article>
+            <p> 
+                Multiple Queries
+
+SQL allows to run multiple queries or commands at the same time.
+
+The following SQL statement selects the FirstName and City columns from the customers table:
+
+SELECT FirstName FROM customers;
+SELECT City FROM customers;
+
+Remember to end each SQL statement with a semicolon to indicate that the statement complete and ready to be interpreted. 
+            </p>
+        </article>
+    </section>
+    <section class="main section" id="Case_Sensitivity">
+        <header>Case Sensititivity</header>
+        <article>
+            <p> 
+                SQL is case insensitive 
+The following statements are equivalent and will produce the same result:
+
+select City from customers;
+SELECT City FROM customers;
+sElEct City From customers 
+It is common practice to write all SQL commands in Upper case
+            </p>
+        </article>
+    </section>
+    <section class="main section" id="Syntax_Rules">
+        <header>Syntax Rules</header>
+        <article>
+            <p> 
+                A single SQL statement can be placed one or more text lines. In addition multiple SQL statements can be combined on a single text line.
+
+                White spaces and multiple lines are ignored in SQL.
+                
+                For example, the following query is absolutely correct:
+                
+                SELECT   City
+                
+                FROM customers;
+                
+                However it is recommended to avoid unnecessary white spaces and lines.
+                
+                Combined with proper spacing and indenting,breaking up the commands into logical lines will make your SQL statements much easier to read and maintain.
+                
+                As previously mentioned, the SQL SELECT statement retrieves records from tables in your SQL database. 
+                
+                You can select multiple table columns at once.
+                Just list the column names, separated by commas:
+                
+                SELECT FirstName, LastName, City 
+                FROM customers;
+                
+                Do not put a comma after the last column name.
+            </p>
+        </article>
+    </section>
+    <section class="main section" id="Selecting_All_Columns">
+        <header>Selecting All Columns</header>
+        <article>
+            <p> 
+                To retrieve all of the information contained in your table, place an asterisk (*) sign after the SELECT command, rather than typing in each column's names separately. 
+
+                The following SQL statement selects all of the columns in the customers table:
+                
+                SELECT * FROM customers;
+                
+                In SQL, the asterisk means all. 
+            </p>
+        </article>
+    </section>
+    <section class="main section" id="The_DISTINCT_Keyword">
+        <header>The DISTINCT Keyword</header>
+        <article>
+            <p> 
+                In situations in which you have multiple duplicate records in a table, it might make more sense to return only unique records, instead of fetching the duplicates.
+
+                The SQL DISTINCT keyword is used in conjunction with SELECT to eliminate all duplicate records and return only unique ones.
+                
+                The basic syntax of DISTINCT is as follows:
+                
+                SELECT DISTINCT column_name1, column_name2
+                FROM table_name;
+                
+                Note that there are duplicate City names. The following SQL statement selects only distinct values from the City column:
+                
+                SELECT DISTINCT City FROM customers;
+                
+                This would produce the following result. Duplicate entries have been removed.
+                
+                The DISTINCT keyword only fetches the unique values.
+            </p>
+        </article>
+    </section>
+    <section class="main section" id="The_LIMIT_Keyword">
+        <header>The LIMIT Keyword</header>
+        <article>
+            <p> 
+                By default, all results that satisfy the conditions specified in the SQL statement are returned. However, sometimes we need to retrieve just a subset of records. In MySQL, this is accomplished by using the LIMIT keyword. 
+
+                The syntax for LIMIT is as follows:
+                
+                SELECT column list
+                FROM table_name
+                LIMIT [number of records];
+                
+                For example, we can retrieve the first five records from the customers table.
+                
+                SELECT ID, FirstName, LastName, City
+                FROM customers LIMIT 5;
+                
+                By default, all results that satisfy the conditions specified in the SQL statement are returned.
+                
+                You can also pick up a set of records from a particular offset.
+                In the following example, we pick up four records, starting from the third position:
+                
+                SELECT ID, FirstName, LastName, City
+                FROM customers LIMIT 3, 4;
+                
+                The reason that it produces results starting from ID number four, and not three, is that MySQL starts counting from zero, meaning that the offset of the first row is 0, not 1.
+            </p>
+        </article>
+    </section>
+    <section class="main section" id="Sorting_Results">
+        <header>Sorting Results</header>
+        <article>
+            <p> 
+                Fully Qualified Names
+
+In SQL, you can provide the table name prior to the column name, by separating them with a dot. 
+
+The following statements are equivalent:
+
+SELECT City FROM customers;
+SELECT customers. City FROM customers;
+
+The term for the above- mentioned syntax is called the “fully qualified name” of that column
+
+This form of writing is especially useful when working with multiple tables that may share the same column names.
+            </p>
+        </article>
+    </section>
+    <section class="main section" id="Order_By">
+        <header>Order By</header>
+        <article>
+            <p> 
+                ORDER BY is used with SELECT to sort the returned data
+
+The following example sorts our customers table by the FirstName column
+
+SELECT *FROM customers 
+ORDER BY FirstName;
+
+By default, the ORDER BY keyword sorts the results in ascending order
+            </p>
+        </article>
+    </section>
+    <section class="main section" id="Sorting_Multiple_Columns">
+        <header>Sorting Multiple Columns</header>
+        <article>
+            <p> 
+                ORDER BY can sort retrieved data by multiple columns When using ORDER BY with more than one column, separate the list of columns to follow ORDER BY with commas.
+
+                To order by LastName and Age:
+                
+                SELECT *FROM customers
+                ORDER BY LastNam, Age;
+                
+                As we have two Smiths, they will be ordered by the Age column in ascending order. 
+                
+                The ORDER BY command starts ordering in the same sequence as the columns It will order by the first solemn listed, then by the second and so on. 
+            </p>
+        </article>
+    </section>
+    <section class="main section" id="Reference">
+        <header>Reference</header>
+        <article>
+            <ul>
+                <li>
+                All the documentation in this page is taken from <a href="https://www.sololearn.com/learning/1060" target="_blamk">MDN</a>
+                </li>
+        </ul>
+        </article>
+    </section>
+</main>
+
+<style>
+    html
+    body {
+        min-width:290px;
+        color:	#fa9907;
+        background-color: #4d4e53;
+        font-family:cursive;
+        line-height: 1.5;
+    }
+    #navbar {
+        position: fixed;
+        min-width:290px;
+        top: 0px;
+        left:0px;
+        width: 300px;
+        height: 100px;
+        border-right:solid;
+        border-color:rgba(0, 22, 22, 0.4);
+    }
+    header {
+        color:#CCFF00;
+        margin: 10px;
+        text-align: center;
+        font-size: 1.8em;
+        font-weight: thin;
+    }
+    #main-doc header {
+        text-align: left;
+        margin:0px;
+    }
+    #navbar ul{
+        height: 88%;
+        padding:0;
+        /*overflow-y: auto;
+        overflow-x: hidden;*/
+        
+    }
+    #navbar li{
+        color:#66FFCC;
+        border-top: 1px solid;
+        list-style: none;
+        
+        width: 100%;
+    }
+    #navbar a {
+        display: #2FAACE;
+        padding: 10px 30px;
+        color:#c8ff00;
+        text-decoration: none;
+        cursor: pointer;
+    }
+    #main-doc {
+        position: absolute;
+        margin-left: 310px;
+        padding: 20px;
+        margin-bottom: 110px;
+    }
+    section{
+        padding-left: 19%;
+    }
+    section article {
+        color:#fa9907;
+        margin: 15px;
+        font-size: 0.96em;
+    }
+    section li {
+        margin: 15px 0px 0px 20px;
+    }
+    code {
+        display:bloack;
+        text-align: left;
+        white-space: pre-line;
+        position: relative;
+        word-break: normal;
+        word-wrap: normal;
+        line-height: 2;
+        background-color: #f7f7f7;
+        padding: 15px;
+        margin: 10px;
+        border-radius: 5px;
+    }
+    @media only screen and (max-width:815px){
+        /*For mobile phones:*/
+        #navbar ul{
+            border: 1px solid;
+            height: 207px;
+        }
+    #navbar {
+        background-color: white;
+        position: absolute;
+        top:0;
+        padding:0;
+        margin:0;
+        width:100%;
+        max-height: 275px;
+        border:none;
+        z-index:1;
+        border-bottom:2px solid;
+    }
+    #main-doc {
+        position:relative;
+        margin-left: 0px;
+        margin-top: 270px;
+    }
+    @media only screen and (max-width:400px){
+        #main-doc{
+            margin-left:-10px;
+        }
+    
+    code {
+        margin-left: -20px;
+        width:100%;
+        padding:15px;
+        padding-left: 10px;
+        padding-right: 45px;
+        min-width:233px;
+    }
+    }
+    }
